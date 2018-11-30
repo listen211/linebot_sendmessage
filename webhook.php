@@ -20,6 +20,7 @@ require_once (__DIR__.'/vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTi
                         // n?i dung message ???c g?i l?n t? user
                         $request = $message['text'];
                         // function tr? l?i tin nh?n cho user
+                        error_log ('replytoken',$event['replyToken']);
                         $client->replyMessage(
                             [
                                 'replyToken' => $event['replyToken'],
