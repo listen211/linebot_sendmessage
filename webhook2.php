@@ -27,8 +27,9 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                     $request = $message['text'];
-                    if (strcmp($request, 'TestWebSendMessage') !== 0) {
+                    if (strcmp($request, 'TestWebSendMessage') == 0) {
                         $client->replyMessage(messageContent($event,'Nhi khung'));
+                        break;
                     }
                     $model_nm = $request;
                     error_log(implode(' / ', $event), 0);
