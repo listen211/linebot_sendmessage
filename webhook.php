@@ -11,7 +11,7 @@ function messageContent($event, $text){
         'messages' => [
             [
                 'type' => 'text',
-                'text' => $text
+                'text' => 'Hello Thu'
             ]
         ]
     ];
