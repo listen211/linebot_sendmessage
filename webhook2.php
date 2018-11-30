@@ -11,7 +11,7 @@ function messageContent($event, $text){
         'messages' => [
             [
                 'type' => 'text',
-                'text' => 'Hello Thu'
+                'text' => $text
             ]
         ]
     ];
@@ -27,6 +27,9 @@ foreach ($client->parseEvents() as $event) {
             switch ($message['type']) {
                 case 'text':
                     $request = $message['text'];
+                    if (strcmp($request, 'TestWebSendMessage') !== 0) {
+                        $client->replyMessage(messageContent($event,'Nhi khung'));
+                    }
                     $model_nm = $request;
                     error_log(implode(' / ', $event), 0);
                     $client->replyMessage(messageContent($event,$model_nm));
