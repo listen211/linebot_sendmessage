@@ -29,6 +29,9 @@ foreach ($client->parseEvents() as $event) {
                     $request = $message['text'];
                     $model_nm = $request;
                     error_log(implode(' / ', $event), 0);
+					if ($model_nm == "") {
+						$client->replyMessage(messageContent($event,"error"));
+					}
                     $client->replyMessage(messageContent($event,$model_nm));
                     break;
             }
